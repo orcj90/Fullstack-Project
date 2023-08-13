@@ -4,8 +4,12 @@ import Home from './components/Home';
 import ProductPage from './components/ProductPage';
 import About from './components/About';
 import PageNotFound from './components/PageNotFound';
-import PageLayout from './components/PageLayout';
+import Contact from './components/Contact';
+import Signin from './components/Signin';
+import Signup from './components/Signup';
 import Product from './components/Product';
+import PageLayout from './components/PageLayout';
+import Basket from './components/Basket';
 
 function App() {
   return (
@@ -14,7 +18,11 @@ function App() {
         <Route path="/" element={<PageLayout />}>
           <Route path='/' element={<Home />}></Route>
           <Route path='/product' element={<Product />}></Route>
+          <Route path='/contact' element={<Contact />}></Route>
           <Route path='/about' element={<About />}></Route>
+          <Route path='/signin' element={<Signin />}></Route>
+          <Route path='/signup' element={<Signup />}></Route>
+          <Route path='/basket' element={<Basket />}></Route>
         </Route>
         <Route path='*' element={<PageNotFound />}></Route>
       </Routes>

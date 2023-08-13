@@ -45,8 +45,22 @@
 .list-group-item {
   text-align: left;
 }
-.btm a,p{
+
+.btm a,
+p {
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+#inputQuantity {
+  max-width: 3rem
+}
+
+.fa-solid {
+  color: black;
+}
+
+.fs-5.mb-5 span {
+  margin-left: 10px;
 }

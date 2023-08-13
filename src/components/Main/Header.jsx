@@ -21,6 +21,9 @@ export default function Header() {
                             <li class="nav-item">
                                 <Link className='navbar-item nav-link active' to={'/about'}> About Us</Link>
                             </li>
+                            <li class="nav-item">
+                                <Link className='navbar-item nav-link active' to={'/contact'}>Contact</Link>
+                            </li>
                         </ul>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -32,18 +35,19 @@ export default function Header() {
                         </ul>
                     </div>
                     <div class="collapse navbar-collapse">
-                        <ul class="nav justify-content-end">
+                        <ul class="nav navbar-nav justify-content-end">
                             <li class="nav-item">
-                                <Link className='navbar-item nav-link active' to={'/login'}>
+                                <Link className='navbar-item nav-link active' to={'/signin'}>
                                     <i class="fa-solid fa-right-to-bracket fa-sm"></i>
                                 </Link>
                             </li>
                             <li class="nav-item">
-                                <Link className='navbar-item nav-link active' to={'/signin'}> Sign in</Link>
+                                <Link className='navbar-item nav-link active' to={'/signup'}> Sign Up</Link>
                             </li>
                             <li class="nav-item">
-                                <Link className='navbar-item nav-link active' to={'/bascket'}>
+                                <Link className='navbar-item nav-link active' to={'/basket'}>
                                     <i class="fa-solid fa-cart-shopping fa-sm"></i>
+                                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                                 </Link>
                             </li>
                         </ul>

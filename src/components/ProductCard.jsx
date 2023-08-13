@@ -7,7 +7,6 @@ export default function ProductCard() {
         <>
             <div class="col product bg-dark-subtle">
                 <div class="card cardProduct bg-body-secondary" style={{ width: 18 + 'rem' }}>
-                    {/* <img src="https://daisycon.io/images/mobile-device/?width=250&height=250&color=ffffff&mobile_device_brand=apple&mobile_device_model=iphone+7+plus+128gb&mobile_device_color=silver" class="card-img-top" alt="Phone" /> */}
                     <Picture />
                     <div class="card-body">
                         <h5 class="card-title">Phone Name :</h5>
@@ -23,7 +22,7 @@ export default function ProductCard() {
                     <div class="card-body ">
                         <li class="list-group-item bg-body-secondary">price :</li>
                         <li class="list-group-item bg-body-secondary">Discount :</li>
-                        <a href="#" class="card-link">Infromation Page</a>
+                        <a href="/product" class="card-link">Infromation Page</a>
                         <a href="#" class="card-link">Add to cart <i class="fa-solid fa-cart-plus fa-sm"></i></a>
                     </div>
                 </div>
