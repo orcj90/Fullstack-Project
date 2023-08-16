@@ -7,7 +7,7 @@ export default function Singin() {
     return (
         <>
             <div>
-                <h1 class="text-center">Singin</h1>
+                <h1 className="text-center">Singin</h1>
             </div>
         </>
     );

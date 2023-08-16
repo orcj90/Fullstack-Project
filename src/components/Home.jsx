@@ -7,13 +7,13 @@ import ProductCard from './ProductCard';
 export default function Home() {
   return (
     <>
-      <div class="container-fluid bg-dark-subtle">
+      <div className="container-fluid bg-dark-subtle">
         <div>
-          <h1 class="text-center">Products List</h1>
+          <h1 className="text-center">Products List</h1>
         </div>
-        <div class="container bg-dark-subtle">
-          <div class="container text-center">
-            <div class="row align-items-start">
+        <div className="container bg-dark-subtle">
+          <div className="container text-center">
+            <div className="row align-items-start">
               <ProductCard />
               <ProductCard />
               <ProductCard />

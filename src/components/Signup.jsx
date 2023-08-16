@@ -7,7 +7,7 @@ export default function Signup() {
   return (
     <>
       <div>
-        <h1 class="text-center">Signup</h1>
+        <h1 className="text-center">Signup</h1>
       </div>
     </>
   );

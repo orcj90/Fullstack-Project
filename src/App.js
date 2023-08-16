@@ -11,6 +11,9 @@ import Product from './components/Product';
 import PageLayout from './components/PageLayout';
 import Basket from './components/Basket';
 
+
+import Homepage from './components/Homepage';
+
 function App() {
   return (
     <>
@@ -23,6 +26,8 @@ function App() {
           <Route path='/signin' element={<Signin />}></Route>
           <Route path='/signup' element={<Signup />}></Route>
           <Route path='/basket' element={<Basket />}></Route>
+          <Route path='/Productpage' element={<ProductPage />}></Route>
+          <Route path='/Homepage' element={<Homepage />}></Route>
         </Route>
         <Route path='*' element={<PageNotFound />}></Route>
       </Routes>
