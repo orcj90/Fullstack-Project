@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Card = ({ img, title, star, reviews, prevPrice, newPrice }) => {
   return (
@@ -10,6 +9,9 @@ const Card = ({ img, title, star, reviews, prevPrice, newPrice }) => {
           <h3 className="card-title">{title}</h3>
           <section className="card-reviews">
             {star} {star} {star} {star}
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
             <span className="total-reviews">{reviews}</span>
           </section>
           <section className="card-price">
@@ -17,7 +19,7 @@ const Card = ({ img, title, star, reviews, prevPrice, newPrice }) => {
               <del>{prevPrice}</del> {newPrice}
             </div>
             <div className="bag">
-              {/* <FontAwesomeIcon icon="fa-solid fa-cart-shopping" size="sm" /> */}
+              <i class="fa-solid fa-cart-shopping"></i>
             </div>
           </section>
         </div>

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Header from "./Main/Header";
 import Findproducts from "./Main/Findproducts";
 import products from "../db/data";
 import Recommended from "./Main/Recommended";
