@@ -47,17 +47,10 @@ function Product() {
                                     </ListGroup.Item>
                                 </ListGroup>
                             </Col>
-
-
                         </Card.Text>
                     </Container>
                 </Col>
             </Row>
-
-
-
-
-
         </Container>
 
     );

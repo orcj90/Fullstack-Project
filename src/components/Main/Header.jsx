@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import Find from './Sidebar/Find/Find';
+import { AuthContext } from '../../context/AuthContext';
 export default function Header() {
+
+    const {user} = useContext(AuthContext)
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,12 +41,12 @@ export default function Header() {
                     <div className="collapse navbar-collapse">
                         <ul className="nav navbar-nav justify-content-end">
                             <li className="nav-item">
-                                <Link className='navbar-item nav-link active' to={'/signin'}>
+                                <Link className='navbar-item nav-link active' to={'/login'}>
                                     <i className="fa-solid fa-right-to-bracket fa-sm"></i>
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className='navbar-item nav-link active' to={'/signup'}> Sign Up</Link>
+                                <Link className='navbar-item nav-link active' to={'/register'}> Sign Up</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className='navbar-item nav-link active' to={'/basket'}>
@@ -54,6 +57,11 @@ export default function Header() {
                         </ul>
                     </div>
                 </div>
+                {user ? <div className='navbar-end'>
+                        <span className='navbar-item'>
+                            Welcome, {user}
+                        </span>
+                    </div> : null }
             </nav>
             <Outlet />
         </>

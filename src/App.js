@@ -3,16 +3,23 @@ import './App.css';
 import About from './components/About';
 import PageNotFound from './components/PageNotFound';
 import Contact from './components/Contact';
-import Signin from './components/Signin';
-import Signup from './components/Signup';
 import Product from './components/Product';
 import PageLayout from './components/PageLayout';
 import Basket from './components/Basket';
-
-
+import Mainpage from './components/Mainpage';
 import Homepage from './components/Homepage';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+import ProtectedRoute from './components/ProtectedRoute';
+import { useContext } from 'react';
+import { AuthContext } from './context/AuthContext';
 
 function App() {
+
+  const { user } = useContext(AuthContext)
+
+  console.log(user)
+
   return (
     <>
       <Routes>
@@ -20,13 +27,16 @@ function App() {
           <Route path='/product' element={<Product />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
           <Route path='/about' element={<About />}></Route>
-          <Route path='/signin' element={<Signin />}></Route>
-          <Route path='/signup' element={<Signup />}></Route>
+          <Route element={<ProtectedRoute user={user} />}>
           <Route path='/basket' element={<Basket />}></Route>
-          <Route path='/' element={<Homepage />}></Route>
         </Route>
-        <Route path='*' element={<PageNotFound />}></Route>
-      </Routes>
+        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/register' element={<Register/>}></Route>
+        <Route path='/mainpage' element={<Mainpage />}></Route>
+        <Route path='/' element={<Homepage />}></Route>
+      </Route>
+      <Route path='*' element={<PageNotFound />}></Route>
+    </Routes >
     </>
   );
 }
