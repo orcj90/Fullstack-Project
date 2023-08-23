@@ -4,7 +4,7 @@ import Find from './Sidebar/Find/Find';
 import { AuthContext } from '../../context/AuthContext';
 export default function Header() {
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -54,14 +54,17 @@ export default function Header() {
                                     <span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
                                 </Link>
                             </li>
+                            <li className="nav-item">
+
+                            </li>
                         </ul>
                     </div>
                 </div>
                 {user ? <div className='navbar-end'>
-                        <span className='navbar-item'>
-                            Welcome, {user}
-                        </span>
-                    </div> : null }
+                    <span className='navbar-item'>
+                        Welcome, {user}
+                    </span>
+                </div> : null}
             </nav>
             <Outlet />
         </>

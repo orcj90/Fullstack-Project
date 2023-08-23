@@ -1,15 +1,40 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Findproducts from "./Main/Findproducts";
-import products from "../db/data";
+// import products from "../db/data";
 import Recommended from "./Main/Recommended";
 import Sidebar from "./Main/Sidebar/Sidebar";
 import Card from "./Card";
 import "./index.css";
 
 function App() {
+
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        getProducts()
+
+        return;
+    }, [])
+
+    const getProducts = async () => {
+        let products = null
+
+        try {
+            const res = await fetch('http://localhost:3000/api/productsdata')
+            products = await res.json()
+
+        } catch (error) {
+            console.log(error)
+        }
+
+        // console.log(products)
+
+        setProducts(products)
+    }
+
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     // ----------- Input Filter -----------
@@ -52,17 +77,19 @@ function App() {
                     title === selected
             );
         }
-
+        console.log(filteredProducts)
+        console.log(products)
         return filteredProducts.map(
-            ({ img, title, star, reviews, prevPrice, newPrice }) => (
+            (filteredProduct) => (
                 <Card
-                    key={Math.random()}
-                    img={img}
-                    title={title}
-                    star={star}
-                    reviews={reviews}
-                    prevPrice={prevPrice}
-                    newPrice={newPrice}
+                    // key={Math.random()}
+                    id={filteredProduct.id}
+                    img={filteredProduct.img}
+                    title={filteredProduct.title}
+                    star={filteredProduct.star}
+                    reviews={filteredProduct.reviews}
+                    prevPrice={filteredProduct.prevPrice}
+                    newPrice={filteredProduct.newPrice}
                 />
             )
         );
@@ -78,9 +105,9 @@ function App() {
                         <Sidebar handleChange={handleChange} query={query} handleInputChange={handleInputChange} />
                     </Col>
                     <Col xs="auto">
-                        
-                            <Recommended handleClick={handleClick} />
-                        
+
+                        <Recommended handleClick={handleClick} />
+
                         <Findproducts result={result} />
                     </Col>
                 </Row>
