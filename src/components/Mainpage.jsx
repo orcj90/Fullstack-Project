@@ -11,17 +11,18 @@ export default function Mainpage() {
         let filteredProducts = products;
 
         // Applying selected filter for top selling and recomanded
-            filteredProducts = filteredProducts.filter(
-                ({ category, company, title }) =>
-                    category === "Apple" ||
-                    company === "Apple" ||
-                    title === "Apple"
-            );
+        filteredProducts = filteredProducts.filter(
+            ({ category, company, title }) =>
+                category === "Apple" ||
+                company === "Apple" ||
+                title === "Apple"
+        );
 
         return filteredProducts.map(
-            ({ img, title, star, reviews, prevPrice, newPrice }) => (
+            ({ img, title, id, star, reviews, prevPrice, newPrice }) => (
                 <Card
                     key={Math.random()}
+                    id={id}
                     img={img}
                     title={title}
                     star={star}
@@ -35,11 +36,10 @@ export default function Mainpage() {
     const result = topsell(products);
     return (
         <>
-            <Container style={{textAlign:"center" ,display: "contents"}} >
+            <Container style={{ textAlign: "center", display: "contents" }} >
                 <Row >
                     <h1>Recomanded</h1>
                     <Container fluid><section className="card-container">{result}</section></Container>
-                    
                 </Row>
                 <Row>
                     <h1>Top Selling</h1>

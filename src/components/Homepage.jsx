@@ -23,7 +23,8 @@ function App() {
         let products = null
 
         try {
-            const res = await fetch('http://localhost:3000/api/productsdata')
+            const res = await fetch('http://localhost:3000/api/products')
+            // const res = await fetch('http://localhost:3000/api/productsdata')
             products = await res.json()
 
         } catch (error) {
@@ -77,12 +78,12 @@ function App() {
                     title === selected
             );
         }
-        console.log(filteredProducts)
-        console.log(products)
+        // console.log(filteredProducts)
+        // console.log(products)
         return filteredProducts.map(
             (filteredProduct) => (
                 <Card
-                    // key={Math.random()}
+                    key={Math.random()}
                     id={filteredProduct.id}
                     img={filteredProduct.img}
                     title={filteredProduct.title}

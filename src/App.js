@@ -24,19 +24,19 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<PageLayout />}>
-          <Route path='/product' element={<Product />}></Route>
+          {/* <Route path='/product' element={<Product />}></Route> */}
+          <Route path='/product' element={<Homepage />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
           <Route path='/about' element={<About />}></Route>
           <Route element={<ProtectedRoute user={user} />}>
-          <Route path='/basket' element={<Basket />}></Route>
+            <Route path='/basket' element={<Basket />}></Route>
+          </Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+          <Route path='/' element={<Mainpage />}></Route>
         </Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/register' element={<Register/>}></Route>
-        <Route path='/mainpage' element={<Mainpage />}></Route>
-        <Route path='/' element={<Homepage />}></Route>
-      </Route>
-      <Route path='*' element={<PageNotFound />}></Route>
-    </Routes >
+        <Route path='*' element={<PageNotFound />}></Route>
+      </Routes >
     </>
   );
 }

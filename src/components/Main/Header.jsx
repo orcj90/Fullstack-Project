@@ -1,9 +1,21 @@
 import React, { useContext, useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, useNavigate, Outlet } from 'react-router-dom'
 import Find from './Sidebar/Find/Find';
 import { AuthContext } from '../../context/AuthContext';
 export default function Header() {
 
+
+    const { logout, error, setError } = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        logout()
+            .then(() => {
+                navigate('/')
+            }).catch((err) => {
+                setError(err.message)
+            })
+    }
     const { user } = useContext(AuthContext)
     return (
         <>
@@ -40,31 +52,49 @@ export default function Header() {
                     </div>
                     <div className="collapse navbar-collapse">
                         <ul className="nav navbar-nav justify-content-end">
-                            <li className="nav-item">
-                                <Link className='navbar-item nav-link active' to={'/login'}>
-                                    <i className="fa-solid fa-right-to-bracket fa-sm"></i>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className='navbar-item nav-link active' to={'/register'}> Sign Up</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className='navbar-item nav-link active' to={'/basket'}>
-                                    <i className="fa-solid fa-cart-shopping fa-sm"></i>
-                                    <span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-
-                            </li>
+                            {{ user } ?
+                                <div className="collapse navbar-collapse">
+                                    <ul className="nav navbar-nav justify-content-end">
+                                        <li className="nav-item">
+                                            <Link className='navbar-item nav-link active' to={'/basket'}>
+                                                <i className="fa-solid fa-cart-shopping fa-sm"></i>
+                                                <span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <div className='navbar-end'>
+                                                <span className='navbar-item'>
+                                                    Welcome, {user}
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className='navbar-item nav-link active' onClick={handleLogout} to={'/'}>
+                                                {/* <i className="fa-solid fa-right-to-bracket fa-sm"></i> */}
+                                                logout
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                                :
+                                <div className="collapse navbar-collapse">
+                                    <ul className="nav navbar-nav justify-content-end">
+                                        <li className="nav-item">
+                                            <Link className='navbar-item nav-link active' to={'/login'}>
+                                                {/* <i className="fa-solid fa-right-to-bracket fa-sm"></i> */}
+                                                login
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className='navbar-item nav-link active' to={'/register'}> Sign Up</Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            }
                         </ul>
                     </div>
                 </div>
-                {user ? <div className='navbar-end'>
-                    <span className='navbar-item'>
-                        Welcome, {user}
-                    </span>
-                </div> : null}
+
             </nav>
             <Outlet />
         </>
