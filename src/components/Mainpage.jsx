@@ -19,10 +19,10 @@ export default function Mainpage() {
         );
 
         return filteredProducts.map(
-            ({ img, title, id, star, reviews, prevPrice, newPrice }) => (
+            ({ img, title, _id, star, reviews, prevPrice, newPrice }) => (
                 <Card
                     key={Math.random()}
-                    id={id}
+                    id={_id}
                     img={img}
                     title={title}
                     star={star}

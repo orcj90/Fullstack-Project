@@ -24,15 +24,11 @@ function App() {
 
         try {
             const res = await fetch('http://localhost:3000/api/products')
-            // const res = await fetch('http://localhost:3000/api/productsdata')
             products = await res.json()
 
         } catch (error) {
             console.log(error)
         }
-
-        // console.log(products)
-
         setProducts(products)
     }
 
@@ -84,7 +80,7 @@ function App() {
             (filteredProduct) => (
                 <Card
                     key={Math.random()}
-                    id={filteredProduct.id}
+                    id={filteredProduct._id}
                     img={filteredProduct.img}
                     title={filteredProduct.title}
                     star={filteredProduct.star}

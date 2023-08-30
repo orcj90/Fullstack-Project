@@ -52,7 +52,7 @@ export default function Header() {
                     </div>
                     <div className="collapse navbar-collapse">
                         <ul className="nav navbar-nav justify-content-end">
-                            {{ user } ?
+                            {( user ) ?
                                 <div className="collapse navbar-collapse">
                                     <ul className="nav navbar-nav justify-content-end">
                                         <li className="nav-item">
@@ -64,7 +64,7 @@ export default function Header() {
                                         <li className="nav-item">
                                             <div className='navbar-end'>
                                                 <span className='navbar-item'>
-                                                    Welcome, {user}
+                                                    Welcome, {`${user?.firstName} ${user?.lastName}`}
                                                 </span>
                                             </div>
                                         </li>

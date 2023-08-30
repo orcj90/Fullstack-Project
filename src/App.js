@@ -18,14 +18,15 @@ function App() {
 
   const { user } = useContext(AuthContext)
 
-  console.log(user)
+  // console.log(user)
 
   return (
     <>
       <Routes>
         <Route path="/" element={<PageLayout />}>
-          {/* <Route path='/product' element={<Product />}></Route> */}
+          {/* <Route path='/productcard' element={<Product />}></Route> */}
           <Route path='/product' element={<Homepage />}></Route>
+          <Route path='/product/:id' element={<Product />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
           <Route path='/about' element={<About />}></Route>
           <Route element={<ProtectedRoute user={user} />}>

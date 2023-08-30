@@ -34,8 +34,9 @@ export default function Register() {
 
 
     return (
-        <div className='has-text-centered container' >
+        <div className="container-fluid text-center" >
             <h1>Register</h1>
+            
             {
                 error &&  <div className="notification is-danger is-light">
                     <button onClick={() => setOpen(false)}  className="delete"></button>
@@ -44,53 +45,53 @@ export default function Register() {
             }
 
             {
-                open && data?.success && data?.message &&   <div className="notification is-success is-light">
-                    <button onClick={() => setOpen(false)} className="delete"></button>
+                open && data?.success && data?.message &&   <div className="container-fluid text-center">
+                    <button onClick={() => setOpen(false)} className="btn"></button>
                     {data.message}
                     </div>
             }
            
-            <div className="field">
-                <p className="control has-icons-left has-icons-right">
+            <div className="container-fluid text-center">
+                <p className="container-fluid text-center">
                     <input onChange={(e) => setFirstName(e.target.value)} value={firstName} className="input" type="text" placeholder="First Name" />
                     <span className="icon is-small is-left">
                         <i className="fas fa-user"></i>
                     </span>
                 </p>
             </div>
-            <div className="field">
-                <p className="control has-icons-left has-icons-right">
+            <div className="container-fluid text-center">
+                <p className="container-fluid text-center">
                     <input onChange={(e) => setLastName(e.target.value)} value={lastName}  className="input" type="text" placeholder="Last Name" />
                     <span className="icon is-small is-left">
                         <i className="fas fa-user"></i>
                     </span>
                 </p>
             </div>
-            <div className="field">
-                <p className="control has-icons-left has-icons-right">
+            <div className="container-fluid text-center">
+                <p className="container-fluid text-center">
                     <input onChange={(e) => setEmail(e.target.value)} value={email}  className="input" type="email" placeholder="Email" />
                     <span className="icon is-small is-left">
                         <i className="fas fa-envelope"></i>
                     </span>
                 </p>
             </div>
-            <div className="field">
-                <p className="control has-icons-left">
+            <div className="container-fluid text-center">
+                <p className="container-fluid text-center">
                     <input onChange={(e) => setPassword(e.target.value)} value={password}  className="input" type="password" placeholder="Password" />
                     <span className="icon is-small is-left">
                         <i className="fas fa-lock"></i>
                     </span>
                 </p>
             </div>
-            <div className="field">
-                <p className="control has-icons-left">
+            <div className="container-fluid text-center">
+                <p className="container-fluid text-center">
                     <input onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword}  className="input" type="password" placeholder="Confirm Password" />
                     <span className="icon is-small is-left">
                         <i className="fas fa-lock"></i>
                     </span>
                 </p>
             </div>
-            <button onClick={handleRegister} className="button is-link">Register</button>
+            <button onClick={handleRegister} className="btn btn-primary">Register</button>
         </div>
     )
 }

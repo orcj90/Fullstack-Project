@@ -22,7 +22,7 @@ export default function Login() {
 
 
     return (
-        <div className='has-text-centered container' >
+        <div className="container-fluid text-center" >
             <h1>Login</h1>
             {
                 error &&  <div className="notification is-danger is-light">
@@ -30,26 +30,26 @@ export default function Login() {
                     {error}
                     </div>
             }
-            <div className="field">
-                <p className="control has-icons-left has-icons-right">
+            <div className="container-fluid text-center">
+                <p className="text-center">
                     <input onChange={(e) => setEmail(e.target.value)} value={email} className="input" type="email" placeholder="Email" />
                     <span className="icon is-small is-left">
                         <i className="fas fa-envelope"></i>
                     </span>
                 </p>
             </div>
-            <div className="field">
-                <p className="control has-icons-left">
+            <div className="container-fluid text-center">
+                <p className="text-center">
                     <input  onChange={(e) => setPassword(e.target.value)} value={password} className="input" type="password" placeholder="Password" />
-                    <span className="icon is-small is-left">
+                    <span className="text-center">
                         <i className="fas fa-lock"></i>
                     </span>
                 </p>
             </div>
             <div>
-            if you don't have an account yet please <Link to={'/register'}>register for account</Link>
+            create account <Link to={'/register'}>register</Link>
             </div>
-            <button onClick={handleLogin} className="button is-link">Login</button>
+            <button onClick={handleLogin} className="btn btn-primary">Login</button>
         </div>
     )
 }
