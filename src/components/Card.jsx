@@ -34,7 +34,7 @@ const Card = ({ img, title, id, star, reviews, prevPrice, newPrice }) => {
                 <del>{prevPrice}</del> {newPrice}
               </div>
               <div className="bag">
-                <i className="fa-solid fa-cart-shopping"></i>
+                <button id={"btn"+{id}}><i className="fa-solid fa-cart-shopping"></i></button>
                 {/* <Link className='navbar-item nav-link active' to={'/basket'}><i className="fa-solid fa-cart-shopping"></i></Link> */}
               </div>
             </section>

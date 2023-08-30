@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import products from "../db/data";
 import Card from "./Card";
+import "./Mainpage.css"
 export default function Mainpage() {
 
     function topsell(products) {
@@ -18,6 +19,11 @@ export default function Mainpage() {
                 title === "Apple"
         );
 
+        let arr = filteredProducts
+        filteredProducts =  []
+        for (let i = 0; i < 4; i++) {
+            filteredProducts[i] = arr[i];
+        }
         return filteredProducts.map(
             ({ img, title, _id, star, reviews, prevPrice, newPrice }) => (
                 <Card
@@ -37,12 +43,27 @@ export default function Mainpage() {
     return (
         <>
             <Container style={{ textAlign: "center", display: "contents" }} >
-                <Row >
+                <Row>
+                    <Col>
+                    <img src={require('../pic/backgraund.png')} className="d-block w-100" alt="phone" />
+                    </Col>
+                    <Col>
+                        <img src={require('../pic/backgraund.png')} className="d-block w-100" alt="phone" />
+                    </Col>
+                    <Col>
+                    <img src={require('../pic/backgraund.png')} className="d-block w-100" alt="phone" />
+                    </Col>
+                </Row>
+                <Row style={{height: "50rem"}}>
                     <h1>Recomanded</h1>
                     <Container fluid><section className="card-container">{result}</section></Container>
-                </Row>
-                <Row>
+                </Row>"
+                <Row style={{height: "50rem"}}>
                     <h1>Top Selling</h1>
+                    <Container fluid><section className="card-container">{result}</section></Container>
+                </Row>
+                <Row style={{height: "50rem"}}>
+                    <h1>new phone</h1>
                     <Container fluid><section className="card-container">{result}</section></Container>
                 </Row>
             </Container>

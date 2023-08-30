@@ -4,27 +4,49 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-
+import { useParams, useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Order } from '../context/Order'
 function Product() {
 
     const params = useParams()
     const id = params.id
-    
+    const navigate = useNavigate()
     const [product, setProduct] = useState(null)
-
+    const [qty, setqty] = useState("1")
+    // const { login, error, setError } = useContext(Order);
     useEffect(() => {
-      
-      const fetchData = async () => {
-        const res = await fetch(`http://localhost:3000/api/products/${id}`)
-        const data = await res.json()
-        setProduct(data)
-      }
-      fetchData()
-    }, [])
-    
 
+        const fetchData = async () => {
+            const res = await fetch(`http://localhost:3000/api/products/${id}`)
+            const data = await res.json()
+            setProduct(data)
+        }
+        fetchData()
+    }, [])
+
+    let basket = []
+    basket = [JSON.parse(localStorage.getItem('basket'))]
+    function handleofevent() {
+
+        console.log("click")
+
+        let qty = document.querySelector("#inputQuantity").value
+
+        console.log(qty)
+
+        basket.push({ id, qty })
+        // console.log(JSON.stringify(basket))
+
+        localStorage.setItem("basket", JSON.stringify(basket))
+        console.log(basket)
+
+        localStorage.setItem(`${id}`, qty)
+        // localStorage.setItem(`qty${id}`, qty)
+
+
+        navigate('/basket')
+    }
 
     return (
         <Container fluid>
@@ -62,8 +84,8 @@ function Product() {
                                     </ListGroup.Item>
                                     <ListGroup.Item>
                                         <div className="d-flex fs-5 mb-5">
-                                            <input className="form-control text-center me-3" id="inputQuantity" type="num" value="1" />
-                                            <button className="btn btn-outline-dark flex-shrink-0" type="button">
+                                            <input className="form-control text-center me-3" id="inputQuantity" type="num" value={qty} onChange={(e) => setqty(e.target.value)} />
+                                            <button className="btn btn-outline-dark flex-shrink-0" id={"button" + id} onClick={handleofevent} type="button">
                                                 <i className="bi-cart-fill me-1"></i>
                                                 Add to cart
                                             </button>

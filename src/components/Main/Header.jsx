@@ -54,7 +54,6 @@ export default function Header() {
                         <ul className="nav navbar-nav justify-content-end">
                             {( user ) ?
                                 <div className="collapse navbar-collapse">
-                                    <ul className="nav navbar-nav justify-content-end">
                                         <li className="nav-item">
                                             <Link className='navbar-item nav-link active' to={'/basket'}>
                                                 <i className="fa-solid fa-cart-shopping fa-sm"></i>
@@ -62,7 +61,7 @@ export default function Header() {
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <div className='navbar-end'>
+                                            <div className='navbar-end container'>
                                                 <span className='navbar-item'>
                                                     Welcome, {`${user?.firstName} ${user?.lastName}`}
                                                 </span>
@@ -74,7 +73,6 @@ export default function Header() {
                                                 logout
                                             </Link>
                                         </li>
-                                    </ul>
                                 </div>
                                 :
                                 <div className="collapse navbar-collapse">

@@ -4,7 +4,7 @@ import "./Findproducts.css";
 const Findproducts = ({ result }) => {
   return (
     <>
-      <section className="card-container">{result}</section>
+      <section className="card-container productpage">{result}</section>
     </>
   );
 };
