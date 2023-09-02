@@ -10,9 +10,22 @@ import Mainpage from './components/Mainpage';
 import Homepage from './components/Homepage';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
+import Checkout from './components/Checkout';
 import ProtectedRoute from './components/ProtectedRoute';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
+
+
+
+
+import {
+  getLSContent,
+  setLSContent,
+  calculateTotal,
+  getCartItemPrices,
+  displayCartTotal,
+  saveProduct
+} from "../src/basket"
 
 function App() {
 
@@ -32,6 +45,7 @@ function App() {
           <Route element={<ProtectedRoute user={user} />}>
             <Route path='/basket' element={<Basket />}></Route>
           </Route>
+            <Route path='/checkout' element={<Checkout />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
           <Route path='/' element={<Mainpage />}></Route>

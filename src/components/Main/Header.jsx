@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate, Outlet } from 'react-router-dom'
-import Find from './Sidebar/Find/Find';
 import { AuthContext } from '../../context/AuthContext';
 export default function Header() {
 

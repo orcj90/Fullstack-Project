@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import products from "../db/data";
 import Card from "./Card";
-import "./Mainpage.css"
+
 export default function Mainpage() {
 
     function topsell(products) {
