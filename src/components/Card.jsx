@@ -3,15 +3,7 @@ import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Cards from 'react-bootstrap/Card';
 import {
-  getLSContent,
-  setLSContent,
-  calculateTotal,
-  getCartItemPrices,
-  displayCartTotal,
-  saveProduct,
-  removeProduct,
-  clearCart,
-  checkout
+  saveProduct
 } from "../basket"
 import { useEffect } from 'react'
 

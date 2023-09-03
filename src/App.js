@@ -15,18 +15,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
 
-
-
-
-import {
-  getLSContent,
-  setLSContent,
-  calculateTotal,
-  getCartItemPrices,
-  displayCartTotal,
-  saveProduct
-} from "../src/basket"
-
 function App() {
 
   const { user } = useContext(AuthContext)

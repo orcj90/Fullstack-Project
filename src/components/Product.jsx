@@ -8,13 +8,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { Order } from '../context/Order'
 import {
-    getLSContent,
-    setLSContent,
-    calculateTotal,
-    getCartItemPrices,
-    displayCartTotal,
-    saveProduct,
-    removeProduct
+    saveProduct
 } from "../basket"
 
 function Product() {

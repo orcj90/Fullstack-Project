@@ -63,7 +63,7 @@ export default function Mainpage() {
                     <Container fluid><section className="card-container">{result}</section></Container>
                 </Row>
                 <Row style={{height: "50rem"}}>
-                    <h1>new phone</h1>
+                    <h1>New phone</h1>
                     <Container fluid><section className="card-container">{result}</section></Container>
                 </Row>
             </Container>

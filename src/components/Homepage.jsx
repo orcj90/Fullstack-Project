@@ -70,7 +70,7 @@ function App() {
                     category === selected ||
                     color === selected ||
                     company === selected ||
-                    newPrice === selected ||
+                    newPrice <= selected ||
                     title === selected
             );
         }
